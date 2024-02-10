@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const app = express()
+const messagesRouter = require('./routes/messagesRouter')
 
 app.use(cors({
   origin: '*',
@@ -10,6 +11,8 @@ app.use(cors({
   exposedHeaders: '*'
 }))
 app.use(express.json())
+
+app.use('/message', messagesRouter)
 
 const connectDbAndStart = async () => {
   await mongoose.connect('mongodb+srv://burztcrew:0NdsKMN4Ib8CG3oc@cluster0.36xw4ev.mongodb.net/chat-app-db?retryWrites=true&w=majority')
