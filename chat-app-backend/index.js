@@ -1,8 +1,22 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
-const app = express()
+const usersRouter = require('./routes/usersRouter')
 const messagesRouter = require('./routes/messagesRouter')
+const http = require('http')
+const { Server } = require('socket.io')
+
+
+const app = express()
+const server = http.createServer(app)
+const io = new Server(server, {
+  cors: {
+    origin: '*',
+    methods: '*',
+    allowedHeaders: '*',
+    exposedHeaders: '*'
+  }
+})
 
 app.use(cors({
   origin: '*',
@@ -11,13 +25,11 @@ app.use(cors({
   exposedHeaders: '*'
 }))
 app.use(express.json())
+app.use('/user', usersRouter)
+app.use('/messages', messagesRouter)
 
-app.use('/message', messagesRouter)
 
-const connectDbAndStart = async () => {
+server.listen(8000, async () => {
   await mongoose.connect('mongodb+srv://burztcrew:0NdsKMN4Ib8CG3oc@cluster0.36xw4ev.mongodb.net/chat-app-db?retryWrites=true&w=majority')
-  console.log('Connected to Chat App DB')
-  app.listen(8000)
-}
-
-connectDbAndStart()
+  console.log('Connected to Chat App DB & Listening on PORT 8000')
+})

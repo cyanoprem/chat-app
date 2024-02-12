@@ -2,6 +2,7 @@ const { Schema, model } = require('mongoose')
 
 const messageSchema = new Schema(
   {
+  userId: Schema.Types.ObjectId,
   message: String
   },
   {
