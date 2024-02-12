@@ -26,7 +26,6 @@ messagesRouter.get('/', isUserAuthorized, async (req, res) => {
 
 io.on("connection", (socket) => {
   // console.log(`a user is connected ${socket.id}`)
-
   socket.on('send_message', async (data) => {
     const newMessage = new messageModel({
       username: data.username,
