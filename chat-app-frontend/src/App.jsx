@@ -3,13 +3,12 @@ import Home from "./components/Home"
 import Navbar from "./components/Navbar"
 import SignIn from "./components/SignIn"
 import SignUp from "./components/SignUp"
-import { UsersContextProvider, usersContext } from "./providers/UsersContextProvider"
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { usersContext } from "./providers/UsersContextProvider"
+import { Routes, Route, Navigate } from 'react-router-dom'
 
 const App = () => {
 
   const { token } = useContext(usersContext)
-
   return <>
     <Navbar />
     {
