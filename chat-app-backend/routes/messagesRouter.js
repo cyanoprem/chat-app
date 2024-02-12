@@ -23,7 +23,4 @@ messagesRouter.get('/', isUserAuthorized, async (req, res) => {
 })
 
 
-
-
-
 module.exports = messagesRouter
