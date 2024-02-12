@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react"
 import { usersContext } from "../providers/UsersContextProvider"
 import { messagesContext } from "../providers/MessagesContextProvider"
 import AllMessages from "./AllMessages"
+import CreateMessage from "./CreateMessage"
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
 
   return <>
     <AllMessages />
+    <CreateMessage />
   </>
 }
 

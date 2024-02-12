@@ -57,7 +57,7 @@ const UsersContextProvider = ({ children }) => {
     if (data.error) {
       alert(data.error)
     } else {
-      console.log(data.message, token)
+      // console.log(data.message, token)
       navigate('/home')
     }
   }

@@ -29,12 +29,12 @@ const MessagesContextProvider = ({ children }) => {
         message: msg.message
       }
     })
-    console.log(msgs)
+    // console.log(msgs)
     setAllMessages(msgs)
   }
 
   return <>
-    <messagesContext.Provider value={{ allMessages, getAllMessages }}>
+    <messagesContext.Provider value={{ allMessages, getAllMessages, setAllMessages }}>
       {children}
     </messagesContext.Provider>
   </>

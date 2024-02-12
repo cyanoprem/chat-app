@@ -3,20 +3,8 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const usersRouter = require('./routes/usersRouter')
 const messagesRouter = require('./routes/messagesRouter')
-const http = require('http')
-const { Server } = require('socket.io')
+const { app, server } = require('./middlewares/socket')
 
-
-const app = express()
-const server = http.createServer(app)
-const io = new Server(server, {
-  cors: {
-    origin: '*',
-    methods: '*',
-    allowedHeaders: '*',
-    exposedHeaders: '*'
-  }
-})
 
 app.use(cors({
   origin: '*',
