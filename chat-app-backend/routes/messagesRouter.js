@@ -6,20 +6,24 @@ const isUserAuthorized = require('../middlewares/isUserAuthorized')
 
 messagesRouter.post('/', isUserAuthorized, async (req, res) => {
   const { message } = req.body
-  const { userId } = req.currentUser
-
+  const { username } = req.currentUser
   const newMessage = new messageModel({
-    userId: userId,
+    username: username,
     message: message
   })
-
   await newMessage.save()
-
   res.json({
     message: 'Message Created'
   })
-
 })
+
+messagesRouter.get('/', isUserAuthorized, async (req, res) => {
+  const allMessages = await messageModel.find().exec()
+  res.json(allMessages)
+})
+
+
+
 
 
 module.exports = messagesRouter
