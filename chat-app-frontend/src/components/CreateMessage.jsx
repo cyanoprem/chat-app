@@ -10,7 +10,11 @@ const CreateMessage = () => {
   const [newMessage, setNewMessage] = useState('')
   const { currentUser } = useContext(usersContext)
   const { setAllMessages, allMessages } = useContext(messagesContext)
-  const socket = io.connect('http://localhost:8000')
+
+  const url = 'https://chat-app-backend-doic.onrender.com/'
+  // const url = 'http://localhost:8000/'
+
+  const socket = io.connect(url)
 
   useEffect(() => {
     socket.on('receive_message', (data) => {

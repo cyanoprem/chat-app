@@ -17,10 +17,13 @@ const UsersContextProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('authorization'))
   const [currentUser, setCurrentUser] = useState('')
 
+  const url = 'https://chat-app-backend-doic.onrender.com/'
+  // const url = 'http://localhost:8000/'
+
   const navigate = useNavigate()
 
   const signUp = async (username, password) => {
-    const response = await fetch('http://localhost:8000/user/signup', {
+    const response = await fetch(`${url}user/signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -40,7 +43,7 @@ const UsersContextProvider = ({ children }) => {
   }
 
   const signIn = async (username, password) => {
-    const response = await fetch('http://localhost:8000/user/signin', {
+    const response = await fetch(`${url}user/signin`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -63,7 +66,7 @@ const UsersContextProvider = ({ children }) => {
   }
 
   const getCurrentUser = async () => {
-    const response = await fetch('http://localhost:8000/user/current-user', {
+    const response = await fetch(`${url}user/current-user`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

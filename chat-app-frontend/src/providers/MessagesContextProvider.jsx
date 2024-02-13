@@ -11,9 +11,11 @@ const MessagesContextProvider = ({ children }) => {
 
   const [allMessages, setAllMessages] = useState([])
   const { token } = useContext(usersContext)
+  const url = 'https://chat-app-backend-doic.onrender.com/'
+  // const url = 'http://localhost:8000/'
 
   const getAllMessages = async () => {
-    const response = await fetch('http://localhost:8000/messages', {
+    const response = await fetch(`${url}messages`, {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
