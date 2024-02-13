@@ -5,7 +5,6 @@ const messagesContext = createContext({
   getAllMessages: async () => { },
   allMessages: [],
   setAllMessages: () => { },
-  getAllMessages: async () => { },
 })
 
 const MessagesContextProvider = ({ children }) => {

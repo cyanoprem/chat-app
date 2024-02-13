@@ -8,13 +8,14 @@ const SignUp = () => {
   const [password, setPassword] = useState('')
   const { signUp } = useContext(usersContext)
 
-  return <>
-    <p>Sign Up</p>
-    <input type="text" placeholder="Enter Username" onChange={(e) => { setUsername(e.target.value) }} />
-    <input type="password" placeholder="Enter Password" onChange={(e) => { setPassword(e.target.value) }} />
-    <button onClick={(e) => { signUp(username, password) }}>Sign Up</button>
+  return <div className="box form-box">
+    <p className="is-size-4 mb-4">Sign Up</p>
+    <input type="text" placeholder="Enter Username" onChange={(e) => { setUsername(e.target.value) }} className="input mb-4" />
+    <input type="password" placeholder="Enter Password" onChange={(e) => { setPassword(e.target.value) }} className="input mb-4" />
+    <button onClick={(e) => { signUp(username, password) }} className="button is-link mb-4">Sign Up</button>
+    <br />
     <Link to='/signin'>Existing user? Signin</Link>
-  </>
+  </div>
 }
 
 export default SignUp

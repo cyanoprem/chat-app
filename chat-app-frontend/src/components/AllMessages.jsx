@@ -13,12 +13,12 @@ const AllMessages = () => {
     }
   }, [allMessages])
 
-  return <>
+  return <div id="all-messages-container">
     {allMessages.map((msg) => {
       return <Message key={msg.id} username={msg.username} message={msg.message} />
     })}
 
-  </>
+  </div>
 }
 
 export default AllMessages

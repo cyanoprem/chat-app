@@ -26,13 +26,13 @@ const CreateMessage = () => {
   }, [socket])
 
 
-  return <>
-    <input type="text" placeholder="Enter message" onChange={(e) => setNewMessage(e.target.value)} value={newMessage} />
+  return <div className="box" id="create-message-container">
+    <input type="text" placeholder="Enter message" onChange={(e) => setNewMessage(e.target.value)} value={newMessage} className="input" id="message-input"/>
     <button onClick={() => {
       socket.emit('send_message', { username: currentUser, message: newMessage })
       setNewMessage('')
-    }}>Send</button>
-  </>
+    }} className="button is-link ml-2">Send</button>
+  </div>
 }
 
 export default CreateMessage
