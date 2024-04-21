@@ -1,2 +1,1 @@
-1. Chat Application built using React, Express, MongoDB and Socket.io
-2. Deployed in Vercel and Render
+Chat Application built using React, Express, MongoDB and Socket.io, Deployed in Vercel and Render
